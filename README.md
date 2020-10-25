@@ -30,3 +30,4 @@ powershell -nop -c "iex(New-Object Net.WebClient).DownloadString('https://git.io
 #	- Customized and removed over 1400 lines of code
 #	- Changed one command to run this script
 ##########
+ 
