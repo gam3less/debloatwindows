@@ -27,6 +27,7 @@
 # Gam3less Additions:
 #
 #	- Added an option to pick a browser and install from Brave, Firefox or Google Chrome
+#	- Added an option to install Java
 #	- Customized and removed over 1400 lines of code
 #	- Changed one command to run this script
 # Default preset
@@ -37,13 +38,14 @@ $tweaks = @(
 	
 	### Chris Titus Tech Additions
 	"TitusRegistryTweaks",
-	"InstallTitusProgs", #REQUIRED FOR OTHER PROGRAM INSTALLS! (Its just chocolatey)
+	"InstallTitusProgs", #REQUIRED FOR OTHER PROGRAM INSTALLS! (It's just chocolatey)
 	"Install7Zip",
 	"InstallNotepadplusplus",
 	"InstallIrfanview",
 	"InstallVLC",
 	"InstallAdobe",
-	"InstallBrowser", #Added by Gameless
+	"InstallBrowser", #Added by Gam3less
+	"InstallJava", #Added by Gam3less
 
 	### Windows Apps
 	"DebloatAll",
@@ -234,6 +236,10 @@ Function InstallBrowser {
 }
 Function Install7Zip {
 	Show-Choco-Menu -Title "Do you want to install 7-Zip?" -ChocoInstall "7zip"
+}
+
+Function InstallJava {
+	Show-Choco-Menu -Title "Do you want to install Java?" -ChocoInstall "javaruntime"
 }
 
 Function InstallNotepadplusplus {
