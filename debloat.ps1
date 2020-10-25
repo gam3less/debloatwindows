@@ -1,7 +1,7 @@
 # Debloat Windows
 # An edit on Chris Titus Tech's Debloater Script
 #
-#Use the following command to debloat windows:
+# Use the following command to debloat windows:
 #
 #	powershell -nop -c "iex(New-Object Net.WebClient).DownloadString('https://git.io/JTrqX')"
 #
@@ -31,6 +31,7 @@
 #	- Customized and removed over 1400 lines of code
 #	- Changed one command to run this script
 # Default preset
+
 $tweaks = @(
 	### Require administrator privileges ###
 	"RequireAdmin",
@@ -39,13 +40,13 @@ $tweaks = @(
 	### Chris Titus Tech Additions
 	"TitusRegistryTweaks",
 	"InstallTitusProgs", #REQUIRED FOR OTHER PROGRAM INSTALLS! (It's just chocolatey)
+	"InstallBrowser", #Added by Gam3less
+	"InstallJava", #Added by Gam3less
 	"Install7Zip",
 	"InstallNotepadplusplus",
 	"InstallIrfanview",
 	"InstallVLC",
 	"InstallAdobe",
-	"InstallBrowser", #Added by Gam3less
-	"InstallJava", #Added by Gam3less
 
 	### Windows Apps
 	"DebloatAll",
@@ -165,7 +166,7 @@ function Show-Choco-Menu {
     Clear-Host
     Write-Host "================ $Title ================"
     Write-Host "Y: Press 'Y' to do this."
-    Write-Host "2: Press 'N' to skip this."
+    Write-Host "N: Press 'N' to skip this."
 	Write-Host "Q: Press 'Q' to stop the entire script."
     $selection = Read-Host "Please make a selection"
     switch ($selection)
@@ -216,7 +217,7 @@ Function InstallBrowser {
     Write-Host "B: Press 'B' for Brave"
 	Write-Host "F: Press 'F' for Firefox"
 	Write-Host "C: Press 'C' for Google Chrome"
-    Write-Host "N: Press 'S' to skip this."
+    Write-Host "S: Press 'S' to skip this."
 	Write-Host "Q: Press 'Q' to stop the entire script."
     $selection = Read-Host "Please make a selection"
     switch ($selection)
@@ -927,6 +928,7 @@ Function UninstallOneDrive {
 		$onedrive = "$env:SYSTEMROOT\System32\OneDriveSetup.exe"
 	}
 	Start-Process $onedrive "/uninstall" -NoNewWindow -Wait
+	Write-Output "Restarting explorer"
 	Start-Sleep -s 2
 	Stop-Process -Name "explorer" -ErrorAction SilentlyContinue
 	Start-Sleep -s 2
@@ -1213,16 +1215,7 @@ Function DebloatAll {
         "*Sway*"
         "*Speed Test*"
         "*Dolby*"
-             
-        #Optional: Typically not removed but you can if you need to for some reason
-        #"*Microsoft.Advertising.Xaml_10.1712.5.0_x64__8wekyb3d8bbwe*"
-        #"*Microsoft.Advertising.Xaml_10.1712.5.0_x86__8wekyb3d8bbwe*"
-        #"*Microsoft.BingWeather*"
-        #"*Microsoft.MSPaint*"
-        #"*Microsoft.MicrosoftStickyNotes*"
-        #"*Microsoft.Windows.Photos*"
-        #"*Microsoft.WindowsCalculator*"
-        #"*Microsoft.WindowsStore*"
+        "*Microsoft.Windows.Photos*"
     )
     foreach ($Bloat in $Bloatware) {
         Get-AppxPackage -Name $Bloat| Remove-AppxPackage
