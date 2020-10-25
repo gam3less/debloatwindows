@@ -27,6 +27,7 @@ Use the following command to debloat windows:
  Gam3less Additions:
 
 	- Added an option to pick a browser and install from Brave, Firefox or Google Chrome
+	- Added an option to install Java
 	- Customized and removed over 1400 lines of code
 	- Changed one command to run this script
 
