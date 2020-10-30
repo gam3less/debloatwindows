@@ -22,7 +22,7 @@ Use the following command to debloat windows:
 	- Added Install Programs
 	- Added Debloat Microsoft Store Apps
 	- Added Confirm Menu for Adobe and Brave Browser
-	- Changed Default Apps to Notepad++, Brave, Irfanview, etc (removed by Gam3less due to new browser)
+	- Changed Default Apps to Notepad++, Brave, Irfanview, etc (removed by Gam3less due to new browser, Chris removed it later anyway)
 
  Gam3less Additions:
 
